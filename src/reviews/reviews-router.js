@@ -48,6 +48,7 @@ reviewsRouter.route("/").post(requireAuth, jsonBodyParser, (req, res, next) => {
     rating,
   };
   ReviewsService.insertReview(req.app.get("db"), newReview).then((review) => {
+    res.json(review);
     res.status(200);
   });
   for (const [key, value] of Object.entries(newReview))
