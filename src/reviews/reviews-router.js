@@ -35,7 +35,6 @@ reviewsRouter.route("/:placeid").get((req, res, next) => {
 // });
 
 reviewsRouter.route("/").post(requireAuth, jsonBodyParser, (req, res, next) => {
-  console.log(req.user.username);
   const { placeid, season, timeofday, reviewbody, rating } = req.body;
   const userid = req.user.id;
   const username = req.user.username;
