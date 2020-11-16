@@ -10,7 +10,9 @@ const ReviewsService = {
       .insert(newReview)
       .into("reviews")
       .returning("*")
-      .then(([review]) => review);
+      .then((review) => {
+        return review[0];
+      });
   },
   getAllReviewsByUser(knex, userid) {
     return knex.select("*").from("reviews").where({ userid });

@@ -51,9 +51,11 @@ usersRouter
       .catch(next);
   });
 
-// possible to get username from backend using auth token?
-// usersRouter.get("/username", jsonBodyParser, requireAuth, (req, res) => {
-//   res.send("test");
-// });
+usersRouter
+  .route("/userid")
+  .get(jsonBodyParser, requireAuth, (req, res, next) => {
+    const userid = req.user.id;
+    res.status(200).json(userid).end();
+  });
 
 module.exports = usersRouter;

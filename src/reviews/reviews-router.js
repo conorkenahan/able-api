@@ -20,20 +20,6 @@ reviewsRouter.route("/:placeid").get((req, res, next) => {
   ).then((reviews) => res.status(201).json(reviews));
 });
 
-// reviewsRouter.route("/:username").get((req, res, next) => {
-//   ReviewsService.getUserId(req.app.get("db"), req.params.username).then(
-//     (id) => {
-//       userid = id.id;
-//       ReviewsService.getAllReviewsByUser(req.app.get("db"), userid).then(
-//         (reviews) => {
-//           // res.json(reviews);
-//           res.status(201).json(reviews);
-//         }
-//       );
-//     }
-//   );
-// });
-
 reviewsRouter.route("/").post(requireAuth, jsonBodyParser, (req, res, next) => {
   const {
     placeid,
@@ -65,5 +51,21 @@ reviewsRouter.route("/").post(requireAuth, jsonBodyParser, (req, res, next) => {
         error: `Missing '${key}' in request body`,
       });
 });
+
+reviewsRouter
+  .route("/")
+  .delete(requireAuth, jsonBodyParser, (req, res, next) => {
+    const { reviewid } = req.body;
+    const userid = req.user.id;
+    let reviewToDelete = { reviewid, userid };
+    ReviewsService.deleteReview(req.app.get("db"), reviewToDelete).then(() => {
+      res.status(204).end();
+    });
+    for (const [key, value] of Object.entries(reviewToDelete))
+      if (value == null)
+        return res.status(400).json({
+          error: `Missing '${key}' in request body`,
+        });
+  });
 
 module.exports = reviewsRouter;
