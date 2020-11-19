@@ -9,34 +9,34 @@ This is the backend code for Roam, an app to help disabled people find locations
 
 ### Recipes Endpoints
 
-### Auth Endpoints
+#### Auth Endpoints
 
-#### /api/auth/login
+##### /api/auth/login
 
 - POST - login user
 
-### User Endpoints
+#### User Endpoints
 
-#### /api/user/
+##### /api/user/
 
 - POST - create new user
 
-#### /api/user/userid
+##### /api/user/userid
 
 - GET - get user ID
 
-### Reviews Endpoints
+#### Reviews Endpoints
 
-#### /api/reviews
+##### /api/reviews
 
 - POST - create new review
 - DELETE - delete review
 
-#### /api/reviews/by_user
+##### /api/reviews/by_user
 
 - GET - get all reviews by user ID
 
-#### /api/reviews/:placeid
+##### /api/reviews/:placeid
 
 - GET - get all reviews by place ID
 
