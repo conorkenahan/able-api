@@ -1,28 +1,52 @@
-# Express Boilerplate!
+# Roam (Server)
 
-This is a boilerplate project used for starting new projects!
+This is the backend code for Roam, an app to help disabled people find locations that are accesible for their needs..
 
-## Set up
+- [Link to live app](https://roam.vercel.app/)
+- [Link to repo](https://github.com/conorkenahan/roam)
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## API Documentation
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+### Recipes Endpoints
 
-## Scripts
+### Auth Endpoints
 
-Start the application `npm start`
+#### /api/auth/login
 
-Start nodemon for the application `npm run dev`
+- POST - login user
 
-Run the tests `npm test`
+### User Endpoints
 
-## Deploying
+#### /api/user/
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+- POST - create new user
 
-seed table: psql -U conor -d able -f ./seeds/seed.reviews.sql
+#### /api/user/userid
+
+- GET - get user ID
+
+### Reviews Endpoints
+
+#### /api/reviews
+
+- POST - create new review
+- DELETE - delete review
+
+#### /api/reviews/by_user
+
+- GET - get all reviews by user ID
+
+#### /api/reviews/:placeid
+
+- GET - get all reviews by place ID
+
+## Technology Stack
+
+### Backend
+
+- Express for handling API requests
+- Node for interacting with the file system
+- Knex.js for interfacing with the PostgreSQL database
+- Postgrator for database migration
+- Mocha, Chai, Supertest for endpoints testing
+- JSON Web Token, bcryptjs for user authentication / authorization
