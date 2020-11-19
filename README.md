@@ -13,32 +13,32 @@ This is the backend code for Roam, an app to help disabled people find locations
 
 - ##### /api/auth/login
 
-- POST - login user
+  - POST - login user
 
 #### User Endpoints
 
 - ##### /api/user/
 
-- POST - create new user
+  - POST - create new user
 
-##### /api/user/userid
+- ##### /api/user/userid
 
-- GET - get user ID
+  - GET - get user ID
 
 #### Reviews Endpoints
 
 - ##### /api/reviews
 
-- POST - create new review
-- DELETE - delete review
+  - POST - create new review
+  - DELETE - delete review
 
 - ##### /api/reviews/by_user
 
-- GET - get all reviews by user ID
+  - GET - get all reviews by user ID
 
 - ##### /api/reviews/:placeid
 
-- GET - get all reviews by place ID
+  - GET - get all reviews by place ID
 
 ## Technology Stack
 
